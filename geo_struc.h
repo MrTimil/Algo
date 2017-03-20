@@ -1,9 +1,12 @@
-
 #ifndef GEO_STRUC_H
 #define GEO_STRUC_H
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <stddef.h>
 #include <stdbool.h>
+#include <string.h>
+#include <assert.h>
 
 struct vec{
 	double x;

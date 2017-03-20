@@ -3,8 +3,12 @@
 #include <ctype.h>
 #include <assert.h>
 #include <stdbool.h>
-#define BUFSIZE 256
+
+
 #include "geo_struc.h"
+#include "EXO2.h"
+
+#define BUFSIZE 256
 // BOISSON Romain 
 // PAQUETTE Emile 
 // Projet d'Algorithme 

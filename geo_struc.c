@@ -1,6 +1,5 @@
 #include "geo_struc.h"
-#include <stdio.h>
-#include <stdlib.h>
+
 
 
 double dot(const struct vec *v1, const struct vec *v2){
