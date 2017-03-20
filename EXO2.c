@@ -37,9 +37,24 @@
 	const struct vec *vecset_max(const struct vecset *self, comp_func_t func, const void *ctx){
 	struct vec max = self->data[0];
 	for (size_t i = 0 ; i < self->size ; ++i){
-		//accès a donnée dans le tableau self->data[i].x 	
+		//accès a donnée dans le tableau self->data[i].x
+		if(func(&max,&(self->data[i]),NULL) < 0){
+			max=self->data[i];
+		}
 	}
 	const struct vec *res = &max ;
+	return res;
+}
+
+// 2.5
+const struct vec *vecset_min(const struct vecset *self, comp_func_t func, const void *ctx){
+	struct vec min = self->data[0];
+	for (size_t i = 0 ; i < self->size ; ++i){
+		if(func(&min,&(self->data[i]),NULL) > 0){
+			min=self->data[i];
+		}
+	}
+	const struct vec *res = &min ;
 	return res;
 }
 
