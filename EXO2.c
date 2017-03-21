@@ -58,3 +58,47 @@ const struct vec *vecset_min(const struct vecset *self, comp_func_t func, const 
 	return res;
 }
 
+// quick sort
+
+
+void vecset_swap(struct vecset *self, size_t i, size_t j) {
+	struct vec tmp = self->data[i];
+	self->data[i] = self->data[j];
+	self->data[j] = tmp;
+}
+
+long vecset_partition(struct vecset *self, long i, long j, comp_func_t func) {
+	long pivot_index = i;
+	const struct vec pivot = self->data[pivot_index];
+	vecset_swap(self, pivot_index, j);
+	long l = i;
+		
+	
+	for (long k = i; k < j; ++k) {
+		if (func(&(self->data[k]),&pivot,NULL)<0) {// remplacer par la fonction de comparaison 
+			vecset_swap(self, k, l);
+			l++;
+		}
+	}
+	vecset_swap(self, l, j);
+	return l;
+}
+void vecset_quick_sort_partial(struct vecset *data, long i, long j, comp_func_t func) {
+	if (i < j) {
+		long p = vecset_partition(data, i, j,func);
+		vecset_quick_sort_partial(data, i, p - 1,func);
+		vecset_quick_sort_partial(data, p + 1, j,func);
+	}
+}		
+
+
+void vector_set_sort(struct vecset *self,comp_func_t func, const void *ctx) {
+	long n = self->size;
+	vecset_quick_sort_partial(self, 0, n - 1,func);
+}
+
+
+
+
+
+

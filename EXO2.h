@@ -23,5 +23,9 @@ void vecset_create(struct vecset *self);
 void vecset_destroy(struct vecset *self);
 void vecset_add(struct vecset *self, struct vec p);
 const struct vec *vecset_max(const struct vecset *self, comp_func_t func, const void *ctx);
+void vecset_swap(struct vecset *self, size_t i, size_t j);
+long vecset_partition(struct vecset *self, long i, long j, comp_func_t func);
+void vecset_quick_sort_partial(struct vecset *data, long i, long j,comp_func_t func);
+void vector_set_sort(struct vecset *self,comp_func_t func, const void *ctx);
 
 #endif 
