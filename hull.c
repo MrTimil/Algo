@@ -6,6 +6,7 @@
 
 
 #include "graham.h"
+#include "marche_jarvis.h"
 
 #define BUFSIZE 256
 // BOISSON Romain 
@@ -18,6 +19,7 @@
 
 
 int main() {
+
 	setbuf(stdout, NULL); // avoid buffering in the output
 	char buffer[BUFSIZE];
 	fgets(buffer, BUFSIZE, stdin);
@@ -27,20 +29,6 @@ int main() {
 	struct vecset *out=malloc(sizeof(struct vecset));
 	vecset_create(in);
 	vecset_create(out);
-	/*
-	struct vec p4;
-	struct vec p5;
-	struct vec p6;
-	p4.x= 1;
-	p4.y= 1;
-	
-	p5.x= 5;
-	p5.y= 5;
-	
-	p6.x= 7;
-	p6.y= 3;
-	*/
-	// FIN DES TESTS
 	
 	for (size_t i = 0; i < count; ++i) {
 		struct vec p;
@@ -49,10 +37,16 @@ int main() {
 		p.x = strtod(endptr, &endptr);
 		p.y = strtod(endptr, &endptr);
 		
-		
 		vecset_push(in,p); 
 	}	
+	
+	//appel de jarvis
+	//jarvis_march(in,out);
+	
+	// appel de graham 
 	graham_scan(in,out);
+	
+	
 	
 	printf("%zu\n",out->size);
 	for(int i=0;i<out->size;++i){
@@ -65,6 +59,3 @@ int main() {
 	free(out);
 	return 0;
 }
-
-
-

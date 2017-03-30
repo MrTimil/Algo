@@ -8,7 +8,7 @@
 #include <string.h>
 #include <assert.h>
 
-#include "EXO2.h"
+#include "lib.h"
 
 void jarvis_march(const struct vecset *in, struct vecset *out);
 

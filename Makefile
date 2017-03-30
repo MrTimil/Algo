@@ -1,22 +1,25 @@
 CFLAG=-c -Wall -std=c99 -g -o 
 
 all: hull clean
-hull: geo_struc.o EXO2.o graham.o marche_jarvis.o hull.o 
+hull: geo_struc.o lib.o graham.o marche_jarvis.o quickhull.o hull.o 
 	gcc -Wall -std=c99 -g -o hull $^ -lm
 
-hull.o: hull.c geo_struc.h EXO2.h
+hull.o: hull.c geo_struc.h lib.h
 	gcc $(CFLAG) hull.o $<
 	
 geo_struc.o: geo_struc.c geo_struc.h
 	gcc $(CFLAG) geo_struc.o geo_struc.c
 	
-EXO2.o: EXO2.c EXO2.h geo_struc.h
-	gcc $(CFLAG) EXO2.o EXO2.c
+lib.o: lib.c lib.h geo_struc.h
+	gcc $(CFLAG) lib.o lib.c
 
-marche_jarvis.o: marche_jarvis.c marche_jarvis.h EXO2.h
+marche_jarvis.o: marche_jarvis.c marche_jarvis.h lib.h
 	gcc $(CFLAG) marche_jarvis.o marche_jarvis.c 
+
+quickhull.o: quickhull.c quickhull.h lib.h
+	gcc $(CFLAG) quickhull.o quickhull.c 
 	
-graham.o: graham.c graham.h EXO2.h
+graham.o: graham.c graham.h lib.h
 	gcc $(CFLAG) graham.o graham.c
 	
 clean:

@@ -17,5 +17,4 @@ double dot(const struct vec *v1, const struct vec *v2);
 double cross(const struct vec *p1,const struct vec *p2, const struct vec *p3);
 bool is_left_turn(const struct vec *p1,const struct vec *p2, const struct vec *p3);
 bool is_right_turn(const struct vec *p1,const struct vec *p2, const struct vec *p3);
-
 #endif 
