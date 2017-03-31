@@ -25,5 +25,6 @@ void graham_scan(const struct vecset *in, struct vecset *out){
 		}
 		vecset_push(out,in2->data[i]);
 	}
-
+	vecset_destroy(in2);
+	free(in2);
 }

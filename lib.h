@@ -29,6 +29,6 @@ int lowest_point(const struct vec *p1,const struct vec *p2, const void *ctx);
 int lowest_abs(const struct vec *p1,const struct vec *p2,const void *ctx);
 int hightest_abs(const struct vec *p1,const struct vec *p2,const void *ctx);
 int comp_angle(const struct vec *p1,const struct vec *p2,const void *ctx);
-
+struct vec *farthest_point(const struct vecset *self,const struct vec *p1,const struct vec *p2);
 
 #endif 

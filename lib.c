@@ -16,18 +16,19 @@ void vecset_destroy(struct vecset *self){
 // 2.3 
 void vecset_add(struct vecset *self, struct vec p){
 	if (self->size == self->capacity) {
+
 		if (self->capacity ==0){
 			self->capacity =1;
 		}
 		self->capacity *= 2;
 		struct vec *data = calloc(self->capacity, sizeof(struct vec));
+		
 		memcpy(data, self->data, self->size * sizeof(struct vec));
 		free(self->data);
 		self->data = data;
 	}
 	self->data[self->size] = p;
 	self->size += 1;
-
 }
 	
 
@@ -156,7 +157,7 @@ int lowest_abs(const struct vec *p1,const struct vec *p2, const void *ctx){
  			return -1;
  		}
 }
-int Hightest_abs(const struct vec *p1,const struct vec *p2, const void *ctx){
+int hightest_abs(const struct vec *p1,const struct vec *p2, const void *ctx){
  		if (p1->x == p2->x){
  			return 0;
  		}else{
@@ -166,4 +167,45 @@ int Hightest_abs(const struct vec *p1,const struct vec *p2, const void *ctx){
  			return -1;
  		}
 }
+// fonction de comparaison pour trouver le point le plus loin de la droite (p1p2)
+struct vec *farthest_point(const struct vecset *self,const struct vec *p1,const struct vec *p2){
+
+	double m = (p2->y - p1->y) / (p2->x - p1->x);
+    double p = p1->y - m * p1->x;
+	double res=0;
+	struct vec *M;
+    for (int i = 0; i < self->size; ++i) {
+        if ((fabs(m * self->data[i].x - self->data[i].y + p) / sqrt(pow(m, 2) + 1)) > res){
+            M = &self->data[i];
+            res = (fabs(m * self->data[i].x - self->data[i].y + p) / sqrt(pow(m, 2) + 1));
+        }
+    }
+   /*
+    printf("Self : \n");
+	for(int i=0;i<self->size;++i){
+		printf("%f %f\n",self->data[i].x,self->data[i].y);
+	}
+	
+	printf("P1: %f %f\n",p1->x,p1->y);
+	printf("P2 : %f %f\n",p2->x,p2->y);
+    printf("Farthest : %f %f\n",M->x,M->y);
+   */
+	return M;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

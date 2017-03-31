@@ -7,10 +7,11 @@
 
 #include "graham.h"
 #include "marche_jarvis.h"
+#include "quickhull.h"
 
 #define BUFSIZE 256
-// BOISSON Romain 
-// PAQUETTE Emile 
+// Romain BOISSON
+// Emile PAQUETTE
 // Projet d'Algorithme 
 
 //sans utiliser les generator et viewer ./hull <fich.txt 2>hull.log
@@ -40,13 +41,14 @@ int main() {
 		vecset_push(in,p); 
 	}	
 	
-	//appel de jarvis
+	// appel de jarvis
 	//jarvis_march(in,out);
 	
 	// appel de graham 
-	graham_scan(in,out);
+	//graham_scan(in,out);
 	
-	
+	// appel de quickhull
+	quickhull(in,out); 
 	
 	printf("%zu\n",out->size);
 	for(int i=0;i<out->size;++i){
