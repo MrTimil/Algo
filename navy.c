@@ -2,12 +2,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "navy.h"
+#include "bibli.h"
 #define BUFSIZE 256
 
 
 
 int main() {
+	/*
 	setbuf(stdout, NULL);
 	char buffer[BUFSIZE];
 	// mines
@@ -46,4 +47,8 @@ int main() {
 		fgets(buffer, BUFSIZE, stdin); // NOTHING or ATTACK
 	}
 	return EXIT_SUCCESS;
+	*/
+ 	struct grid grille; 
+ 	add_mine(&grille);
+
 }

@@ -26,8 +26,7 @@ struct bateau{
 };
 
 struct grid{
-int size;
-struct state data[10][10];
+	struct state data[10][10];
 };
 
 // Fonctions 
@@ -49,9 +48,7 @@ struct state data[10][10];
 	on test sur un peu insérer le 1 er bateau dans un direction choisie aléatoirement (entre 1 et 4)
 	si oui alors on l'insere dans notre terrain, sinon on essai une autre direction, quand on a usé les 4 directions possible, on retire une case différente aléatoirement
 */
-void add_ship(struct state *self){
-	
-}
+void add_ship(struct state *self);
 	
 /*
 	On choisi de placer les mines (pas aléatoire, établir une strats) et on les places dans le terrain enemis pour ne pas tirer sur nos propre mines car on perdrait un tir et on détruirait notre propre mine
@@ -59,16 +56,7 @@ void add_ship(struct state *self){
 	
 	
 */
-void add_mine(struct grid *self){
-	self->data[2][2].mineIsHere=true;
-	self->data[2][7].mineIsHere=true;
-	self->data[7][2].mineIsHere=true;
-	self->data[7][7].mineIsHere=true;
-	
-	srand(time(NULL));
-	int x = rand()%4; 
-	printf("%d",x);
-}
+void add_mine(struct grid *self);
 
 
 	

@@ -1,29 +1,16 @@
 CFLAG=-c -Wall -std=c99 -g -o 
 
-all: hull clean
-hull: geo_struc.o lib.o graham.o marche_jarvis.o quickhull.o hull.o 
-	gcc -Wall -std=c99 -g -o hull $^ -lm
+all: navy clean
+navy: bibli.o navy.o 
+	gcc -Wall -std=c99 -g -o navy $^ -lm
 
-hull.o: hull.c geo_struc.h lib.h
-	gcc $(CFLAG) hull.o $<
+navy.o: navy.c bibli.h 
+	gcc $(CFLAG) navy.o $<
 	
-geo_struc.o: geo_struc.c geo_struc.h
-	gcc $(CFLAG) geo_struc.o geo_struc.c
-	
-lib.o: lib.c lib.h geo_struc.h
-	gcc $(CFLAG) lib.o lib.c
-
-marche_jarvis.o: marche_jarvis.c marche_jarvis.h lib.h
-	gcc $(CFLAG) marche_jarvis.o marche_jarvis.c 
-
-quickhull.o: quickhull.c quickhull.h lib.h
-	gcc $(CFLAG) quickhull.o quickhull.c 
-	
-graham.o: graham.c graham.h lib.h
-	gcc $(CFLAG) graham.o graham.c
+bibli.o: bibli.c bibli.h
+	gcc $(CFLAG) bibli.o bibli.c
 	
 clean:
 	rm -f *.o
 mrproper: clean
-	rm -f hull
-	
+	rm -f navy
