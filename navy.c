@@ -49,6 +49,8 @@ int main() {
 	return EXIT_SUCCESS;
 	*/
  	struct grid grille; 
+ 	init_grid(&grille);
  	add_mine(&grille);
+ 	add_ship(&grille);
 
 }

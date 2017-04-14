@@ -1,6 +1,6 @@
 CFLAG=-c -Wall -std=c99 -g -o 
 
-all: navy clean
+all: navy 
 navy: bibli.o navy.o 
 	gcc -Wall -std=c99 -g -o navy $^ -lm
 
