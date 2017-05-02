@@ -1,0 +1,1 @@
+navy: navy.c:31: main: Assertion `strcmp(buffer, "OK\n") == 0' failed.
