@@ -8,36 +8,30 @@
 
 
 int main() {
-	/*
+	
 	setbuf(stdout, NULL);
 	char buffer[BUFSIZE];
+	
+	// déclaration de la grille de jeu 
+	struct grid grille;
+	init_grid(&grille);
+ 	
 	// mines
-	printf("C2\n");
-	printf("H2\n");
-	printf("C7\n");
-	printf("H7\n");
-	printf("E5\n");
+	
+	// déclaration du tableau contenant la position des mines 
+	char tabMine[10];
+	
+	add_mine(&grille,tabMine);
+	
+	for (int i = 0 ; i < 10 ; i+=2){
+			printf("%c%d\n",intToChar(tabMine[i]),tabMine[i+1]);		
+	}
 	
 	// ships
-	printf("B2B6\n");
-	fgets(buffer, BUFSIZE, stdin);
-	assert(strcmp(buffer, "OK\n") == 0);
 	
-	printf("E8H8\n");
-	fgets(buffer, BUFSIZE, stdin);
-	assert(strcmp(buffer, "OK\n") == 0);
-	
-	printf("D1F1\n");
-	fgets(buffer, BUFSIZE, stdin);
-	assert(strcmp(buffer, "OK\n") == 0);
-	
-	printf("G5I5\n");
-	fgets(buffer, BUFSIZE, stdin);
-	assert(strcmp(buffer, "OK\n") == 0);
-	
-	printf("I0I1\n");
-	fgets(buffer, BUFSIZE, stdin);
-	assert(strcmp(buffer, "OK\n") == 0);
+	add_ship(&grille);
+		
+	/*
 	
 	for (;;) {
 		printf("SHOOT\n"); // or POOL or MOVE
@@ -47,10 +41,6 @@ int main() {
 		fgets(buffer, BUFSIZE, stdin); // NOTHING or ATTACK
 	}
 	return EXIT_SUCCESS;
-	*/
- 	struct grid grille; 
- 	init_grid(&grille);
- 	add_mine(&grille);
- 	add_ship(&grille);
+ 	*/
 
 }

@@ -1,32 +1,4 @@
-#include <assert.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
-#include <stdbool.h>
-#define BUFSIZE 256
-
-
-// la struct state permet de décrire une case 
-struct state{
-	int nbTir; 	
-	bool bateauIsHere;
-	bool mineIsHere;
-	
-};
-// permet de décrire le bateau
-struct bateau{
-	int colonne; // x
-	int ligne; // y  
-	int size;
-	//int orientation; // 1 pour verticale, 0 pour horizontal 
-	int nbToucher;
-};
-
-struct grid{
-int size;
-struct state data[10][10];
-};
+#include "bibli.h"
 
 // Fonctions 
 
@@ -39,8 +11,6 @@ struct state data[10][10];
 				1 bateau de 2 
 				
 */
-
-
 
 /*
 * Initialisation de la grille, on met les booleen au valeur voulu
@@ -64,7 +34,7 @@ void add_ship(struct grid *self){
 	bat5.colonne = 5;
 	bat5.ligne = 0;
 	bat5.size=5;
-	//bat5.orientation=1;
+	bat5.orientation=0;
 	bat5.nbToucher=0;
 	
 	
@@ -72,12 +42,15 @@ void add_ship(struct grid *self){
 		self->data[bat5.ligne][bat5.colonne+i].bateauIsHere=true;
 	}
 	
+	printf("%c%d",intToChar(bat5.colonne),bat5.ligne);
+	printf("%c%d\n",intToChar(bat5.colonne+bat5.size-1),bat5.ligne);
+	
 	//bateau de 4 
 	struct bateau bat4;
 	bat4.colonne = 0;
 	bat4.ligne = 6;
 	bat4.size=4;
-	//bat4.orientation=1;
+	bat4.orientation=1;
 	bat4.nbToucher=0;
 	
 	
@@ -85,12 +58,15 @@ void add_ship(struct grid *self){
 		self->data[bat4.ligne+i][bat4.colonne].bateauIsHere=true;
 	}
 	
+	printf("%c%d",intToChar(bat4.colonne),bat4.ligne);
+	printf("%c%d\n",intToChar(bat4.colonne),(bat4.ligne+bat4.size-1));
+	
 	//bateau de 3 
 	struct bateau bat3A;
 	bat3A.colonne = 1;
 	bat3A.ligne = 1;
 	bat3A.size=3;
-	//bat3A.orientation=1;
+	bat3A.orientation=1;
 	bat3A.nbToucher=0;
 	
 	
@@ -99,7 +75,7 @@ void add_ship(struct grid *self){
 	bat3B.colonne = 7;
 	bat3B.ligne = 8;
 	bat3B.size=3;
-	//bat3A.orientation=1;
+	bat3A.orientation=0;
 	bat3B.nbToucher=0;
 	
 	
@@ -108,20 +84,30 @@ void add_ship(struct grid *self){
 		self->data[bat3B.ligne][bat3B.colonne+i].bateauIsHere=true;
 	}
 	
-	//bateau de 3 
+	printf("%c%d",intToChar(bat3A.colonne),bat3A.ligne);
+	printf("%c%d\n",intToChar(bat3A.colonne),(bat3A.ligne+bat3A.size-1));
+	
+	printf("%c%d",intToChar(bat3B.colonne),bat3B.ligne);
+	printf("%c%d\n",intToChar(bat3B.colonne+bat3B.size-1),bat3B.ligne);
+	
+	//bateau de 2 
 	struct bateau bat2;
 	bat2.colonne = 4;
 	bat2.ligne = 9;
 	bat2.size=2;
-	//bat2.orientation=1;
+	bat2.orientation=0;
 	bat2.nbToucher=0;
 	
 	
-	for (size_t i = 0 ; i < bat3A.size ; ++i){
+	for (size_t i = 0 ; i < bat2.size ; ++i){
 		self->data[bat2.ligne][bat2.colonne+i].bateauIsHere=true;
 	}
 
+	printf("%c%d",intToChar(bat2.colonne),bat2.ligne);
+	printf("%c%d\n",intToChar(bat2.colonne+bat2.size-1),bat2.ligne);
 	
+	// affiche les bateau et les mines
+	/*
 	for(size_t i = 0 ; i < 10 ; i++){
 		for(size_t j = 0 ; j < 10 ; j++){
 			if (self->data[i][j].bateauIsHere==true){
@@ -136,7 +122,7 @@ void add_ship(struct grid *self){
 		}
 		printf("\n");
 	}
-	
+	*/
 	
 }
 	
@@ -146,7 +132,7 @@ void add_ship(struct grid *self){
 	
 	
 */
-void add_mine(struct grid *self){
+void add_mine(struct grid *self, char *tab){
 	self->data[2][2].mineIsHere=true;
 	self->data[2][7].mineIsHere=true;
 	self->data[7][2].mineIsHere=true;
@@ -169,8 +155,51 @@ void add_mine(struct grid *self){
 	printf("%d\n",self->data[x][y].mineIsHere);
 	
 	*/
+	// on stocke les mines dans un tableau tab. tab1 et tab2 correspond au coord de la mine 1
+	tab[0] = 2;
+	tab[1] = 2;
+	tab[2] = 2;  
+	tab[3] = 7;
+	tab[4] = 7;
+	tab[5] = 2;
+	tab[6] = 7;
+	tab[7] = 7;
+	tab[8] = x;
+	tab[9] = y;
+	
 }
 
+char intToChar(int value){
+	switch(value){
+		case 0 : return 'A';break;
+		case 1 : return 'B';break;
+		case 2 : return 'C';break;
+		case 3 : return 'D';break;
+		case 4 : return 'E';break;
+		case 5 : return 'F';break;
+		case 6 : return 'G';break;
+		case 7 : return 'H';break;
+		case 8 : return 'I';break;
+		default: return 'J';break;
+	}
+	return '-'; // ne l'attendra jamais
+}
+
+int charToInt(char value){
+	switch(value){
+		case 'A' : return 0;break;
+		case 'B' : return 1;break;
+		case 'C' : return 2;break;
+		case 'D' : return 3;break;
+		case 'E' : return 4;break;
+		case 'F' : return 5;break;
+		case 'G' : return 6;break;
+		case 'H' : return 7;break;
+		case 'I' : return 8;break;
+		default: return 9;break;
+	}
+	return 10; // ne l'attendra jamais
+}
 
 	
 	

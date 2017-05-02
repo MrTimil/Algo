@@ -1,3 +1,6 @@
+#ifndef BIBLI_H
+#define BIBLI_H
+
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,23 +13,24 @@
 // Structure 
 // dans le main struct state tab1[10][10];
 // la struct state permet de décrire une case 
+
 struct state{
 	int nbTir; 	
 	bool bateauIsHere;
 	bool mineIsHere;
-	
 };
 // permet de décrire le bateau
 struct bateau{
-	int ligne;
-	int colonne;
+	int colonne; // x
+	int ligne; // y  
 	int size;
-	int direction;
+	int orientation; // 1 pour verticale, 0 pour horizontal 
 	int nbToucher;
 };
 
 struct grid{
-	struct state data[10][10];
+int size;
+struct state data[10][10];
 };
 
 // Fonctions 
@@ -65,13 +69,17 @@ void add_ship(struct grid *self);
 	
 	
 */
-void add_mine(struct grid *self);
+void add_mine(struct grid *self, char *tab);
 
 
+/*
+ Permet de convertir les lettres A a J en entier, permet un developpement plus simple sans augementer la complexité 
+*/	
+char intToChar(int value);
+int charToInt(char value);
 	
 	
-	
-	
+#endif	
 	
 	
 	
