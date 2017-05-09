@@ -1,0 +1,403 @@
+START
+Tour de boucle
+POLL
+B1
+	B1
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+On va tirer : B1
+
+Adversaire: ATTACK
+
+
+manche
+Tour de boucle
+POLL
+B1
+
+	A1
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+On va tirer : A1
+
+Adversaire: ATTACK
+
+
+manche
+Tour de boucle
+POLL
+A1
+
+PAS DE BATEAU ici : 	A1
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+F1
+	G0
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+On va tirer : G0
+
+Adversaire: ATTACK
+
+
+manche
+Tour de boucle
+POLL
+I1
+PAS DE BATEAU ici : 	G0
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+B5
+PAS DE BATEAU ici : 	G0
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+F5
+	F4
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+On va tirer : F4
+
+Adversaire: ATTACK
+
+
+manche
+Tour de boucle
+POLL
+I5
+PAS DE BATEAU ici : 	F4
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+B8
+PAS DE BATEAU ici : 	F4
+Adversaire: ATTACK
+
+
+manche
+Tour de boucle
+POLL
+F8
+	E9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+On va tirer : E9
+
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+I8
+	H9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+On va tirer : H9
+
+Adversaire: ATTACK
+
+
+manche
+Tour de boucle
+POLL
+D1
+	E0
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+On va tirer : E0
+
+Adversaire: ATTACK
+
+
+manche
+Tour de boucle
+POLL
+D5
+	D4
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+On va tirer : D4
+
+Adversaire: ATTACK
+
+
+manche
+Tour de boucle
+POLL
+D8
+PAS DE BATEAU ici : 	D4
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+B3
+PAS DE BATEAU ici : 	D4
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+F3
+	E4
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+On va tirer : E4
+
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+I3
+PAS DE BATEAU ici : 	E4
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+B1
+PAS DE BATEAU ici : 	E4
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+F1
+	F0
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+On va tirer : F0
+
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+I1
+PAS DE BATEAU ici : 	F0
+Adversaire: ATTACK
+
+
+manche
+Tour de boucle
+POLL
+B5
+PAS DE BATEAU ici : 	F0
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+F5
+PAS DE BATEAU ici : 	F0
+Adversaire: ATTACK
+
+
+manche
+Tour de boucle
+POLL
+I5
+PAS DE BATEAU ici : 	F0
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+B8
+PAS DE BATEAU ici : 	F0
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+F8
+	G9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+On va tirer : G9
+
+Adversaire: ATTACK
+
+
+manche
+Tour de boucle
+POLL
+I8
+PAS DE BATEAU ici : 	G9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+D1
+PAS DE BATEAU ici : 	G9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+D5
+PAS DE BATEAU ici : 	G9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+D8
+PAS DE BATEAU ici : 	G9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+B3
+PAS DE BATEAU ici : 	G9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+F3
+PAS DE BATEAU ici : 	G9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+I3
+PAS DE BATEAU ici : 	G9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+B1
+PAS DE BATEAU ici : 	G9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+F1
+PAS DE BATEAU ici : 	G9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+I1
+PAS DE BATEAU ici : 	G9
+Adversaire: ATTACK
+
+
+manche
+Tour de boucle
+POLL
+B5
+PAS DE BATEAU ici : 	G9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+F5
+PAS DE BATEAU ici : 	G9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+I5
+PAS DE BATEAU ici : 	G9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+B8
+PAS DE BATEAU ici : 	G9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+F8
+	F9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+On va tirer : F9
+

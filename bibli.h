@@ -78,18 +78,11 @@ void add_mine(struct grid *self, char *tab);
 char intToChar(int value);
 int charToInt(char value);
 	
-	
+
+bool is_ship(char *ch);
+bool is_hit(char *ch);
+void couler_bateau(char *coord);
+bool inline_shot(int var_c,int var_l,int add_c,int add_l);
+void garbage_ans();
+
 #endif	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	

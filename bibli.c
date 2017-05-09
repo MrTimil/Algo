@@ -29,6 +29,7 @@ void init_grid(struct grid *self){
 	On choisi de placer nos bateau toujours au même endroit
 */
 void add_ship(struct grid *self){
+char buffer[BUFSIZE];
 	// bateau de 5 
 	struct bateau bat5;
 	bat5.colonne = 5;
@@ -44,7 +45,7 @@ void add_ship(struct grid *self){
 	
 	printf("%c%d",intToChar(bat5.colonne),bat5.ligne);
 	printf("%c%d\n",intToChar(bat5.colonne+bat5.size-1),bat5.ligne);
-	
+	fgets(buffer, BUFSIZE, stdin);
 	//bateau de 4 
 	struct bateau bat4;
 	bat4.colonne = 0;
@@ -60,7 +61,7 @@ void add_ship(struct grid *self){
 	
 	printf("%c%d",intToChar(bat4.colonne),bat4.ligne);
 	printf("%c%d\n",intToChar(bat4.colonne),(bat4.ligne+bat4.size-1));
-	
+	fgets(buffer, BUFSIZE, stdin);
 	//bateau de 3 
 	struct bateau bat3A;
 	bat3A.colonne = 1;
@@ -86,10 +87,10 @@ void add_ship(struct grid *self){
 	
 	printf("%c%d",intToChar(bat3A.colonne),bat3A.ligne);
 	printf("%c%d\n",intToChar(bat3A.colonne),(bat3A.ligne+bat3A.size-1));
-	
+	fgets(buffer, BUFSIZE, stdin);
 	printf("%c%d",intToChar(bat3B.colonne),bat3B.ligne);
 	printf("%c%d\n",intToChar(bat3B.colonne+bat3B.size-1),bat3B.ligne);
-	
+	fgets(buffer, BUFSIZE, stdin);
 	//bateau de 2 
 	struct bateau bat2;
 	bat2.colonne = 4;
@@ -105,7 +106,7 @@ void add_ship(struct grid *self){
 
 	printf("%c%d",intToChar(bat2.colonne),bat2.ligne);
 	printf("%c%d\n",intToChar(bat2.colonne+bat2.size-1),bat2.ligne);
-	
+	fgets(buffer, BUFSIZE, stdin);
 	// affiche les bateau et les mines
 	/*
 	for(size_t i = 0 ; i < 10 ; i++){
@@ -200,21 +201,65 @@ int charToInt(char value){
 	}
 	return 10; // ne l'attendra jamais
 }
+	
+	
 
+void couler_bateau(char *coord){
+	int var_c = charToInt(coord[0]);
+	int var_l = coord[1]-'0';
+	bool shoot=false;
+	//fprintf(stderr,"SALUT SALUT  :::: var_c = %d , var_l = %d \n",var_c,var_l); 
 	
+	shoot = inline_shot(var_c,var_l,-1,0);	// on tire a gauche 
+	//fprintf(stderr,"ici");
+	if(inline_shot(var_c,var_l,1,0)){ // on tire a droite  et mets shot a vrai uniquement si on a touche 
+		shoot=true;
+	}		
 	
+	if(shoot==false){
+		inline_shot(var_c,var_l,0,-1);		//on tire en haut
+		inline_shot(var_c,var_l,0,1);		//on tire en bas
+	}
+}
+
+bool inline_shot(int var_c,int var_l,int add_c,int add_l){
+	char serv_ans[BUFSIZE]="";
+	bool had_shoot=false;
+	int i = 0;
 	
+	do{
+		serv_ans[0]='y';
+		if(var_c+add_c >=0 && var_c+add_c <=9 && var_l+add_l >=0 && var_l+add_l <=9 ){
+			var_c+=add_c;
+			var_l+=add_l;
+			fprintf(stderr,"SHOOT %c%d Reponse serv : ",intToChar(var_c),var_l);
+			printf("SHOOT\n%c%d\n",intToChar(var_c),var_l);
+			fgets(serv_ans, BUFSIZE, stdin);
+			fprintf(stderr,"\nDerniere reponse serveur : ");
+			fprintf(stderr,serv_ans);
+			fprintf(stderr,"Fin shoot\n");
+			garbage_ans();
+		}
+		if(strcmp(serv_ans,"HIT\n")==0){
+			fprintf(stderr,"Touche!!!!! \n");
+			had_shoot=true;
+		}
+		
+	}while(strcmp(serv_ans,"HIT\n")==0);
+	fprintf(stderr,"\ncouler ou rien \n");
+	return had_shoot;
+}
+
+void garbage_ans(){
+	char serv_ans[BUFSIZE];
 	
+	fprintf(stderr,"Garbage\n");
+	fgets(serv_ans, BUFSIZE, stdin);
+	fprintf(stderr,serv_ans);
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	if(strcmp(serv_ans,"MISSED\n")==0|| strcmp(serv_ans,"ATTACK\n")==0){
+		fgets(serv_ans, BUFSIZE, stdin);
+		fprintf(stderr,serv_ans);
+	}
+	fprintf(stderr,"Fin Garbage\n");
+}
