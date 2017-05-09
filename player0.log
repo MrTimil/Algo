@@ -1,162 +1,284 @@
-Ship #1: OK
-Ship #2: OK
-Ship #3: OK
-Ship #4: OK
-Ship #5: BOOM
+START
+Tour de boucle
+POLL
+B1
+	C1
+Adversaire: NOTHING
 
-Pool at I8: SHIP
-Feedback: NOTHING
 
-Shoot at I8: HIT
-Feedback: ATTACK
+manche
+Tour de boucle
+On va tirer : C1
 
-Pool at G1: SHIP
-Feedback: NOTHING
+Adversaire: NOTHING
 
-Shoot at H0: HIT
-Feedback: ATTACK
 
-Pool at C8: EMPTY
-Feedback: NOTHING
+manche
+Tour de boucle
+POLL
+C1
 
-Pool at B7: SHIP
-Feedback: NOTHING
+	D1
+Adversaire: NOTHING
 
-Shoot at A7: HIT
-Feedback: ATTACK
 
-Pool at F7: EMPTY
-Feedback: NOTHING
+manche
+Tour de boucle
+On va tirer : D1
 
-Pool at E4: EMPTY
-Feedback: NOTHING
+Adversaire: NOTHING
 
-Pool at C2: SHIP
-Feedback: NOTHING
 
-Shoot at B1: HIT
-Feedback: ATTACK
+manche
+Tour de boucle
+POLL
+D1
 
-Pool at F1: SHIP
-Feedback: NOTHING
+	E0
+Adversaire: NOTHING
 
-Shoot at G0: HIT
-Feedback: NOTHING
 
-Pool at F8: EMPTY
-Feedback: NOTHING
+manche
+Tour de boucle
+On va tirer : E0
 
-Pool at H6: EMPTY
-Feedback: ATTACK
+Adversaire: NOTHING
 
-Pool at B3: SHIP
-Feedback: NOTHING
 
-Shoot at B3: HIT
-Feedback: ATTACK
+manche
+Tour de boucle
+POLL
+E0
 
-Pool at G8: SHIP
-Feedback: NOTHING
+	F0
+Adversaire: NOTHING
 
-Shoot at H8: HIT
-Feedback: ATTACK
 
-Pool at B8: SHIP
-Feedback: NOTHING
+manche
+Tour de boucle
+On va tirer : F0
 
-Shoot at A8: HIT
-Feedback: ATTACK
+Adversaire: NOTHING
 
-Pool at E4: EMPTY
-Feedback: NOTHING
 
-Pool at D4: EMPTY
-Feedback: NOTHING
+manche
+Tour de boucle
+POLL
+F0
 
-Pool at G2: EMPTY
-Feedback: NOTHING
+PAS DE BATEAU ici : 	F0
+Adversaire: ATTACK
 
-Pool at D3: EMPTY
-Feedback: ATTACK
 
-Pool at D4: EMPTY
-Feedback: NOTHING
+manche
+Tour de boucle
+POLL
+F1
+PAS DE BATEAU ici : 	F0
+Adversaire: NOTHING
 
-Pool at D3: EMPTY
-Feedback: NOTHING
 
-Pool at C7: EMPTY
-Feedback: NOTHING
+manche
+Tour de boucle
+POLL
+I1
+PAS DE BATEAU ici : 	F0
+Adversaire: NOTHING
 
-Pool at B5: SHIP
-Feedback: ATTACK
 
-Shoot at A6: HIT
-Feedback: NOTHING
+manche
+Tour de boucle
+POLL
+B5
+	B5
+Adversaire: NOTHING
 
-Pool at C2: SHIP
-Feedback: NOTHING
 
-Shoot at B2: HIT
-Feedback: NOTHING
+manche
+Tour de boucle
+On va tirer : B5
 
-Pool at H7: EMPTY
-Feedback: NOTHING
+Adversaire: ATTACK
 
-Pool at C3: EMPTY
-Feedback: NOTHING
 
-Pool at G1: SHIP
-Feedback: NOTHING
+manche
+Tour de boucle
+POLL
+B5
 
-Shoot at F0: HIT
-Feedback: ATTACK
+	C5
+Adversaire: NOTHING
 
-Pool at I6: EMPTY
-Feedback: NOTHING
 
-Pool at D5: EMPTY
-Feedback: NOTHING
+manche
+Tour de boucle
+On va tirer : C5
 
-Pool at G3: EMPTY
-Feedback: NOTHING
+Adversaire: NOTHING
 
-Pool at F1: EMPTY
-Feedback: NOTHING
 
-Pool at G7: EMPTY
-Feedback: NOTHING
+manche
+Tour de boucle
+POLL
+C5
 
-Pool at E3: EMPTY
-Feedback: NOTHING
+	D5
+Adversaire: NOTHING
 
-Pool at B6: EMPTY
-Feedback: NOTHING
 
-Pool at G3: EMPTY
-Feedback: NOTHING
+manche
+Tour de boucle
+On va tirer : D5
 
-Pool at B8: SHIP
-Feedback: NOTHING
+Adversaire: NOTHING
 
-Shoot at A9: HIT
-Feedback: NOTHING
 
-Pool at F2: EMPTY
-Feedback: NOTHING
+manche
+Tour de boucle
+POLL
+D5
 
-Pool at G6: EMPTY
-Feedback: NOTHING
+PAS DE BATEAU ici : 	D5
+Adversaire: ATTACK
 
-Pool at H7: EMPTY
-Feedback: NOTHING
 
-Pool at H5: EMPTY
-Feedback: NOTHING
+manche
+Tour de boucle
+POLL
+F5
+PAS DE BATEAU ici : 	D5
+Adversaire: NOTHING
 
-Pool at F1: EMPTY
-Feedback: NOTHING
 
-Pool at H2: EMPTY
-Feedback: ATTACK
+manche
+Tour de boucle
+POLL
+I5
+PAS DE BATEAU ici : 	D5
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+B8
+	C9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+On va tirer : C9
+
+Adversaire: ATTACK
+
+
+manche
+Tour de boucle
+POLL
+C9
+
+	D9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+On va tirer : D9
+
+Adversaire: ATTACK
+
+
+manche
+Tour de boucle
+POLL
+D9
+
+	E9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+On va tirer : E9
+
+Adversaire: ATTACK
+
+
+manche
+Tour de boucle
+POLL
+E9
+
+	F9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+On va tirer : F9
+
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+F9
+
+	G9
+Adversaire: ATTACK
+
+
+manche
+Tour de boucle
+On va tirer : G9
+
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+G9
+
+PAS DE BATEAU ici : 	G9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+F8
+PAS DE BATEAU ici : 	G9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+I8
+PAS DE BATEAU ici : 	G9
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+D1
+	D0
+Adversaire: ATTACK
+
+
+manche
+Tour de boucle
+On va tirer : D0
+
+Adversaire: NOTHING
+
+
+manche
+Tour de boucle
+POLL
+D0
 

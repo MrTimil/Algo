@@ -14,6 +14,7 @@ int main() {
 	setbuf(stdout, NULL);
 	char buffer[BUFSIZE];
 	char buf[BUFSIZE];
+	char coordonnerPremierPollTouche[BUFSIZE];
 	
 	srand(time(NULL));
 	
@@ -23,8 +24,9 @@ int main() {
  	int i =0;
  	int shoot = 0;
  	int pollSET =0;
- 	int  noBoat=0;
- 	
+ 	int  pollFail=0;
+ 	int pasEncoreCouler=1;
+ 	int tabPremierPollToucheInit=0;
 	// déclaration de la grille de jeu 
 	struct grid grille;
 	// initialisation de la grille 
@@ -57,10 +59,9 @@ int main() {
 		
 		// choix entre poll , shoot (ou move) 
 		
-		if(shoot ==1){ 	// si le poll réussit au tour d'avant, on shoot 
+		if(shoot ==1){ 	// si le poll réussit au tour d'avant, on shoot sur les coord que renvoi le poll
 			shoot=0;	
 			
-			// faire une fonction qui calcule la prochaine coordonnée a shooter, puis faire le shoot avec le retour de cette fonction
 			// pour le moment, on poll selon les coord du tableau de poll, si on touche, on repoll sur la même coord, jusqu'a ce que le poll ne réussisse pas, puis on recommence a poll selon le tableau
 			
 			// piste d'amélioration : la premiere fois que le poll ne repond rien, on repoll a la premier coord qui a touché, (cas d'un bateau quon aurait toucher au milieu et qu'on est partie a droite avec les polls et donc on ne detecte pas la gauche du bateau, sinon on refait un tour de boucle sans couler le bateau et on pert des actions pour rien
@@ -73,15 +74,26 @@ int main() {
 			// on enregistre le fait qu'on ai toucher et donc que le poll suivant doit etre a ces coord 
 			pollSET = 1;
 		}else{
-			if(pollSET ==0 || noBoat ==1){
-				fprintf(stderr,"POLL\n%s\n",scan[i%15]);		// on informe du scan
+			if(pollFail ==1 && tabPremierPollToucheInit != 0){ // on poll sur la premier coord qu'on a poll et qui a donner un résultat
+				fprintf(stderr,"POLL\n%s\n",coordonnerPremierPollTouche);	
+				printf("POLL\n%s\n",coordonnerPremierPollTouche);	
+				pollFail++;
+				pasEncoreCouler=1;
+			}else if(pollSET ==0){
+				fprintf(stderr,"POLL\n%s\n",scan[i%15]);		// on poll selon le tableau (ratissage de la grille)
 				printf("POLL\n%s\n",scan[i%15]);				// on scan
 				i++;
-			}else{
+			}else{												// on poll la ou on vient de tirer 
 				fprintf(stderr,"POLL\n%s\n",buf);		
 				printf("POLL\n%s",buf);	
 				pollSET=0;
-				noBoat =0;					
+				pollFail=0;					
+			}
+			
+			if(pollFail ==2){	// On a couler le bateau 
+				pollFail = 0;
+				pollSET =0;
+				tabPremierPollToucheInit=0;
 			}
 		}
 		//fprintf(stderr,"coord : %s",buf);
@@ -105,12 +117,19 @@ int main() {
 		  
 		// on sauvegarde le fait qu'on veut shoot 
 		 shoot =1;
+		 
+		 if(pasEncoreCouler==1 && tabPremierPollToucheInit==0){
+		 	for(int j = 0 ; j < BUFSIZE ; j++ ){
+		 		coordonnerPremierPollTouche[j]=buf[j];
+		 	}
+		 	pasEncoreCouler=0;
+		 }
 	
 		}
 		else if(strcmp(buffer, "EMPTY\n") == 0){
 		  // le sondage n'a pas trouvé de bateau
 		  fprintf(stderr, "PAS DE BATEAU ici : \t%s", buf);
-		  noBoat=1;
+		  pollFail++;
 		}
 		else if(strcmp(buffer, "OK\n") == 0){
 		  // MOVE a réussi
