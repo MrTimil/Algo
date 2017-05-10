@@ -20,13 +20,13 @@ int main() {
 	
 	char *scan[] = {"B1","F1","I1","B5","F5","I5","B8","F8","I8","D1","D5","D8","B3","F3","I3"};
 	
-	int jeu =1;
- 	int i =0;
- 	int shoot = 0;
- 	int pollSET =0;
- 	int  pollFail=0;
- 	int pasEncoreCouler=1;
- 	int tabPremierPollToucheInit=0;
+	int jeu =1;   // permet d'avoir la boucle de jeu 
+ 	int i =0; 	  // compteur pour le choix des coord de POLL
+ 	int shoot = 0; // permet de savoir si on veut tirer ou pas, c'est déterminer au tour de boucle d'avant
+ 	int pollSET =0; // permet de savoir qu'on a toucher au coup précédent et donc que le prochain shoot sera a ces coord
+ 	int  pollFail=0; // permet de savoir si le poll précedent a réussi ou non
+ 	int pasEncoreCouler=1; // permet de savoir si on a déja couler un bateau ou non 
+ 	int tabCoordDebutBateau=0; // permet de sauvegarder les coord du premier poll pour le bateau qu'on essai de couler actuellement
 	// déclaration de la grille de jeu 
 	struct grid grille;
 	// initialisation de la grille 
@@ -74,7 +74,7 @@ int main() {
 			// on enregistre le fait qu'on ai toucher et donc que le poll suivant doit etre a ces coord 
 			pollSET = 1;
 		}else{
-			if(pollFail ==1 && tabPremierPollToucheInit != 0){ // on poll sur la premier coord qu'on a poll et qui a donner un résultat
+			if(pollFail ==1 && tabCoordDebutBateau != 0){ // on poll sur la premier coord qu'on a poll et qui a donner un résultat
 				fprintf(stderr,"POLL\n%s\n",coordonnerPremierPollTouche);	
 				printf("POLL\n%s\n",coordonnerPremierPollTouche);	
 				pollFail++;
@@ -93,7 +93,7 @@ int main() {
 			if(pollFail ==2){	// On a couler le bateau 
 				pollFail = 0;
 				pollSET =0;
-				tabPremierPollToucheInit=0;
+				tabCoordDebutBateau=0;
 			}
 		}
 		//fprintf(stderr,"coord : %s",buf);
@@ -118,7 +118,7 @@ int main() {
 		// on sauvegarde le fait qu'on veut shoot 
 		 shoot =1;
 		 
-		 if(pasEncoreCouler==1 && tabPremierPollToucheInit==0){
+		 if(pasEncoreCouler==1 && tabCoordDebutBateau==0){
 		 	for(int j = 0 ; j < BUFSIZE ; j++ ){
 		 		coordonnerPremierPollTouche[j]=buf[j];
 		 	}

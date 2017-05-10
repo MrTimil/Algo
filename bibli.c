@@ -25,96 +25,257 @@ void init_grid(struct grid *self){
 	}
 }
 
-/* 	
+/*	
+	ANCIENNE VERSION 
+	
 	On choisi de placer nos bateau toujours au même endroit
-*/
-void add_ship(struct grid *self){
-char buffer[BUFSIZE];
-	// bateau de 5 
-	struct bateau bat5;
-	bat5.colonne = 5;
-	bat5.ligne = 0;
-	bat5.size=5;
-	bat5.orientation=0;
-	bat5.nbToucher=0;
 	
-	
-	for (size_t i=0 ; i < bat5.size ; ++i){
-		self->data[bat5.ligne][bat5.colonne+i].bateauIsHere=true;
-	}
-	
-	printf("%c%d",intToChar(bat5.colonne),bat5.ligne);
-	printf("%c%d\n",intToChar(bat5.colonne+bat5.size-1),bat5.ligne);
-	fgets(buffer, BUFSIZE, stdin);
-	//bateau de 4 
-	struct bateau bat4;
-	bat4.colonne = 0;
-	bat4.ligne = 6;
-	bat4.size=4;
-	bat4.orientation=1;
-	bat4.nbToucher=0;
-	
-	
-	for (size_t i = 0 ; i < bat4.size ; ++i){
-		self->data[bat4.ligne+i][bat4.colonne].bateauIsHere=true;
-	}
-	
-	printf("%c%d",intToChar(bat4.colonne),bat4.ligne);
-	printf("%c%d\n",intToChar(bat4.colonne),(bat4.ligne+bat4.size-1));
-	fgets(buffer, BUFSIZE, stdin);
-	//bateau de 3 
-	struct bateau bat3A;
-	bat3A.colonne = 1;
-	bat3A.ligne = 1;
-	bat3A.size=3;
-	bat3A.orientation=1;
-	bat3A.nbToucher=0;
-	
-	
-	//bateau de 3 
-	struct bateau bat3B;
-	bat3B.colonne = 7;
-	bat3B.ligne = 8;
-	bat3B.size=3;
-	bat3A.orientation=0;
-	bat3B.nbToucher=0;
-	
-	
-	for (size_t i = 0 ; i < bat3A.size ; ++i){
-		self->data[bat3A.ligne+i][bat3A.colonne].bateauIsHere=true;
-		self->data[bat3B.ligne][bat3B.colonne+i].bateauIsHere=true;
-	}
-	
-	printf("%c%d",intToChar(bat3A.colonne),bat3A.ligne);
-	printf("%c%d\n",intToChar(bat3A.colonne),(bat3A.ligne+bat3A.size-1));
-	fgets(buffer, BUFSIZE, stdin);
-	printf("%c%d",intToChar(bat3B.colonne),bat3B.ligne);
-	printf("%c%d\n",intToChar(bat3B.colonne+bat3B.size-1),bat3B.ligne);
-	fgets(buffer, BUFSIZE, stdin);
-	//bateau de 2 
-	struct bateau bat2;
-	bat2.colonne = 4;
-	bat2.ligne = 9;
-	bat2.size=2;
-	bat2.orientation=0;
-	bat2.nbToucher=0;
-	
-	
-	for (size_t i = 0 ; i < bat2.size ; ++i){
-		self->data[bat2.ligne][bat2.colonne+i].bateauIsHere=true;
-	}
+	OBJ : Placer les bateaux aléatoirement 
 
-	printf("%c%d",intToChar(bat2.colonne),bat2.ligne);
-	printf("%c%d\n",intToChar(bat2.colonne+bat2.size-1),bat2.ligne);
-	fgets(buffer, BUFSIZE, stdin);
-	// affiche les bateau et les mines
+*/
+
+// retourne true si on peut placer le bateau a ligne et colonne avec la taille et l'orientation (1 pour verticale et 0 pour horizontal) qu'on lui envoie 
+bool placeBateau(struct grid *self,int taille, int colonneDebut, int ligneDebut, int orientation){
+	for(int i = 0 ; i < taille ; i++){
+		if(orientation == 1){
+			if(self->data[colonneDebut][ligneDebut+i].bateauIsHere == true || ligneDebut+i >9){
+				return false;
+			}
+		}else{ // orientation ==0 
+			if(self->data[colonneDebut+i][ligneDebut].bateauIsHere == true || colonneDebut+i >9){
+				return false;
+			}
+		}	
+	}
+	return true;
+}
+
+void add_ship(struct grid *self){
+	srand(time(NULL));
+
+	char buffer[BUFSIZE];	
+
+	
+	//-------------------
+	// Bateau de taille 5
+	//-------------------
+	 
+	struct bateau bat5;
+	bat5.size=5;
+	bool res=false;
+	do{
+		bat5.colonne = rand()%10;
+		bat5.ligne = rand()%10;
+		bat5.orientation = rand()%2;
+
+		res = placeBateau(self, bat5.size, bat5.colonne, bat5.ligne, bat5.orientation);
+	}while(res == false);
+	
+
+	//printf("colonneDebut : %c\n",(intToChar(bat5.colonne)));
+	//printf("ligneDebut : %d\n", bat5.ligne);
+		
+
+	if(bat5.orientation == 0){		// horizontal
+		for (size_t i=0 ; i < bat5.size ; ++i){ // on enregistre notre bateau dans notre grille 
+			self->data[bat5.colonne+i][bat5.ligne].bateauIsHere=true;
+		}		
+		printf("%c%d",intToChar(bat5.colonne),bat5.ligne);
+		printf("%c%d\n",intToChar(bat5.colonne+bat5.size-1),bat5.ligne);
+		fgets(buffer, BUFSIZE, stdin);
+		
+		
+		
+	//printf("colonneFin : %c\n",(intToChar(bat5.colonne+bat5.size-1)));
+	//printf("ligneFin : %d\n", bat5.ligne);
+	}else{ // vertical 
+		for (size_t i=0 ; i < bat5.size ; ++i){ // on enregistre notre bateau dans notre grille 
+			self->data[bat5.colonne][bat5.ligne+i].bateauIsHere=true;
+		}
+		printf("%c%d",intToChar(bat5.colonne),bat5.ligne);
+		printf("%c%d\n",intToChar(bat5.colonne),(bat5.ligne+bat5.size-1));
+		fgets(buffer, BUFSIZE, stdin);
+	//printf("colonneFin : %c\n",(intToChar(bat5.colonne)));
+	//printf("ligneFin : %d\n", bat5.ligne+bat5.size-1);
+	}
+	//printf("orientation %d\n",bat5.orientation);
+	
+	
+	//-------------------
+	// Bateau de taille 4
+	//-------------------
+	
+	
+	struct bateau bat4;
+	bat4.size=4;
+	res=false;
+	do{
+		bat4.colonne = rand()%10;
+		bat4.ligne = rand()%10;
+		bat4.orientation = rand()%2;
+
+		res = placeBateau(self, bat4.size, bat4.colonne, bat4.ligne, bat4.orientation);
+	}while(res == false);
+
+		//printf("colonneDebut : %c\n",(intToChar(bat4.colonne)));
+		//printf("ligneDebut : %d\n", bat4.ligne);
+		
+
+	if(bat4.orientation == 0){
+		for (size_t i=0 ; i < bat4.size ; ++i){ // on enregistre notre bateau dans notre grille 
+			self->data[bat4.colonne+i][bat4.ligne].bateauIsHere=true;
+		}
+		printf("%c%d",intToChar(bat4.colonne),bat4.ligne);
+		printf("%c%d\n",intToChar(bat4.colonne+bat4.size-1),bat4.ligne);
+		fgets(buffer, BUFSIZE, stdin);
+	//	printf("colonneFin : %c\n",(intToChar(bat4.colonne+bat4.size-1)));
+	//	printf("ligneFin : %d\n", bat4.ligne);
+	}else{
+		for (size_t i=0 ; i < bat4.size ; ++i){ // on enregistre notre bateau dans notre grille 
+			self->data[bat4.colonne][bat4.ligne+i].bateauIsHere=true;
+		}
+		printf("%c%d",intToChar(bat4.colonne),bat4.ligne);
+		printf("%c%d\n",intToChar(bat4.colonne),bat4.ligne+bat4.size-1);
+		fgets(buffer, BUFSIZE, stdin);
+	//  printf("colonneFin : %c\n",(intToChar(bat4.colonne)));
+	//	printf("ligneFin : %d\n", bat4.ligne+bat4.size-1);
+	}
+	//	printf("orientation %d\n",bat4.orientation);
+	
+	
+	//-------------------
+	// Bateaux de taille 3
+	//-------------------
+	
+	//-------------------
+	// Premier
+	//-------------------
+	struct bateau bat3;
+	bat3.size=3;
+	res=false;
+	do{
+		bat3.colonne = rand()%10;
+		bat3.ligne = rand()%10;
+		bat3.orientation = rand()%2;
+
+		res = placeBateau(self, bat3.size, bat3.colonne, bat3.ligne, bat3.orientation);
+	}while(res == false);
+
+		//printf("colonneDebut : %c\n",(intToChar(bat3.colonne)));
+		//printf("ligneDebut : %d\n", bat3.ligne);
+		
+
+	if(bat3.orientation == 0){
+		for (size_t i=0 ; i < bat3.size ; ++i){ // on enregistre notre bateau dans notre grille 
+			self->data[bat3.colonne+i][bat3.ligne].bateauIsHere=true;
+		}
+		printf("%c%d",intToChar(bat3.colonne),bat3.ligne);
+		printf("%c%d\n",intToChar(bat3.colonne+bat3.size-1),bat3.ligne);
+		fgets(buffer, BUFSIZE, stdin);
+	//	printf("colonneFin : %c\n",(intToChar(bat3.colonne+bat3.size-1)));
+	//	printf("ligneFin : %d\n", bat3.ligne);
+	}else{
+		for (size_t i=0 ; i < bat3.size ; ++i){ // on enregistre notre bateau dans notre grille 
+			self->data[bat3.colonne][bat3.ligne+i].bateauIsHere=true;
+		}
+		printf("%c%d",intToChar(bat3.colonne),bat3.ligne);
+		printf("%c%d\n",intToChar(bat3.colonne),bat3.ligne+bat3.size-1);
+		fgets(buffer, BUFSIZE, stdin);
+	//  printf("colonneFin : %c\n",(intToChar(bat3.colonne)));
+	//	printf("ligneFin : %d\n", bat3.ligne+bat3.size-1);
+	}
+	//	printf("orientation %d\n",bat3.orientation);
+	
+	//-------------------
+	// Deuxième
+	//-------------------
+	
+	struct bateau bat3b;
+	bat3b.size=3;
+	res=false;
+	do{
+		bat3b.colonne = rand()%10;
+		bat3b.ligne = rand()%10;
+		bat3b.orientation = rand()%2;
+
+		res = placeBateau(self, bat3b.size, bat3b.colonne, bat3b.ligne, bat3b.orientation);
+	}while(res == false);
+
+		//printf("colonneDebut : %c\n",(intToChar(bat3b.colonne)));
+		//printf("ligneDebut : %d\n", bat3b.ligne);
+		
+
+	if(bat3b.orientation == 0){
+		for (size_t i=0 ; i < bat3b.size ; ++i){ // on enregistre notre bateau dans notre grille 
+			self->data[bat3b.colonne+i][bat3b.ligne].bateauIsHere=true;
+		}
+		printf("%c%d",intToChar(bat3b.colonne),bat3b.ligne);
+		printf("%c%d\n",intToChar(bat3b.colonne+bat3b.size-1),bat3b.ligne);
+		fgets(buffer, BUFSIZE, stdin);		
+	//	printf("colonneFin : %c\n",(intToChar(bat3b.colonne+bat3b.size-1)));
+	//	printf("ligneFin : %d\n", bat3b.ligne);
+	}else{
+		for (size_t i=0 ; i < bat3b.size ; ++i){ // on enregistre notre bateau dans notre grille 
+			self->data[bat3b.colonne][bat3b.ligne+i].bateauIsHere=true;
+		}
+		printf("%c%d",intToChar(bat3b.colonne),bat3b.ligne);
+		printf("%c%d\n",intToChar(bat3b.colonne),bat3b.ligne+bat3b.size-1);
+		fgets(buffer, BUFSIZE, stdin);
+	//  printf("colonneFin : %c\n",(intToChar(bat3b.colonne)));
+	//	printf("ligneFin : %d\n", bat3b.ligne+bat3b.size-1);
+	}
+	//	printf("orientation %d\n",bat3b.orientation);
+	
+	
+	//-------------------
+	// Bateaux de taille 2
+	//-------------------
+	
+	struct bateau bat2;
+	bat2.size=2;
+	res=false;
+	do{
+		bat2.colonne = rand()%10;
+		bat2.ligne = rand()%10;
+		bat2.orientation = rand()%2;
+
+		res = placeBateau(self, bat2.size, bat2.colonne, bat2.ligne, bat2.orientation);
+	}while(res == false);
+
+		//printf("colonneDebut : %c\n",(intToChar(bat2.colonne)));
+		//printf("ligneDebut : %d\n", bat2.ligne);
+		
+
+	if(bat2.orientation == 0){
+		for (size_t i=0 ; i < bat2.size ; ++i){ // on enregistre notre bateau dans notre grille 
+			self->data[bat2.colonne+i][bat2.ligne].bateauIsHere=true;
+		}
+		printf("%c%d",intToChar(bat2.colonne),bat2.ligne);
+		printf("%c%d\n",intToChar(bat2.colonne+bat2.size-1),bat2.ligne);
+		fgets(buffer, BUFSIZE, stdin);
+	//	printf("colonneFin : %c\n",(intToChar(bat2.colonne+bat2.size-1)));
+	//	printf("ligneFin : %d\n", bat2.ligne);
+	}else{
+		for (size_t i=0 ; i < bat2.size ; ++i){ // on enregistre notre bateau dans notre grille 
+			self->data[bat2.colonne][bat2.ligne+i].bateauIsHere=true;
+		}
+		printf("%c%d",intToChar(bat2.colonne),bat2.ligne);
+		printf("%c%d\n",intToChar(bat2.colonne),bat2.ligne+bat2.size-1);
+		fgets(buffer, BUFSIZE, stdin);
+	//  printf("colonneFin : %c\n",(intToChar(bat2.colonne)));
+	//	printf("ligneFin : %d\n", bat2.ligne+bat2.size-1);
+	}
+	//	printf("orientation %d\n",bat2.orientation);
+	
+	
 	/*
+	
 	for(size_t i = 0 ; i < 10 ; i++){
 		for(size_t j = 0 ; j < 10 ; j++){
-			if (self->data[i][j].bateauIsHere==true){
+			if (self->data[j][i].bateauIsHere==true){
 				printf("x");
 			}else{
-				if(self->data[i][j].mineIsHere==true){
+				if(self->data[j][i].mineIsHere==true){
 					printf("y");
 				}else{
 					printf("_");
@@ -123,21 +284,20 @@ char buffer[BUFSIZE];
 		}
 		printf("\n");
 	}
-	*/
 	
+	*/
 }
 	
 /*
-	On choisi de placer les mines (pas aléatoirement) et on les places dans le terrain enemis pour ne pas tirer sur nos propre mines car on perdrait un tir et on détruirait notre propre mine
-	STRAT 1 : on place 4 min toujours de la même facon, et la derniere aléatoirement dans les 4 cases du milieu
-	
+	On choisi de placer les mines (pas aléatoirement sauf la cinquième)
+	On les places dans les endroit qu'on ne POLL pas dans notre premier parcours du tableau adverse
 	
 */
 void add_mine(struct grid *self, char *tab){
-	self->data[2][2].mineIsHere=true;
-	self->data[2][7].mineIsHere=true;
-	self->data[7][2].mineIsHere=true;
-	self->data[7][7].mineIsHere=true;
+	self->data[3][8].mineIsHere=true;
+	self->data[8][3].mineIsHere=true;
+	self->data[3][1].mineIsHere=true;
+	self->data[1][3].mineIsHere=true;
 	
 	srand(time(NULL));
 	int x = rand()%2+4; 
@@ -263,3 +423,4 @@ void garbage_ans(){
 	}
 	fprintf(stderr,"Fin Garbage\n");
 }
+

@@ -6,7 +6,7 @@
 TOTAL=0;
 MOI=0;
 
-while [ $TOTAL -lt 10000 ];
+while [ $TOTAL -lt 1000 ];
 do
     TOTAL=$(($TOTAL+1));
 
