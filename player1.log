@@ -1,129 +1,139 @@
-Ship #1: OK
-Ship #2: OK
-Ship #3: OK
-Ship #4: OK
-Ship #5: OK
-
-Pool at I7: SHIP
-Feedback: NOTHING
-
-Shoot at J8: HIT
-Feedback: ATTACK
-
-Pool at F4: EMPTY
-Feedback: NOTHING
-
-Pool at D3: SHIP
-Feedback: ATTACK
-
-Shoot at C2: HIT
-Feedback: NOTHING
-
-Pool at H5: EMPTY
-Feedback: ATTACK
-
-Pool at G5: EMPTY
-Feedback: NOTHING
-
-Pool at I6: EMPTY
-Feedback: ATTACK
-
-Pool at G4: EMPTY
-Feedback: NOTHING
-
-Pool at H6: EMPTY
-Feedback: NOTHING
-
-Pool at G2: EMPTY
-Feedback: NOTHING
-
-Pool at D3: SHIP
-Feedback: NOTHING
-
-Shoot at C3: HIT
-Feedback: ATTACK
-
-Pool at I6: EMPTY
-Feedback: NOTHING
-
-Pool at G8: SHIP
-Feedback: ATTACK
-
-Shoot at H8: HIT
-Feedback: NOTHING
-
-Pool at F2: EMPTY
-Feedback: ATTACK
-
-Pool at D7: EMPTY
-Feedback: NOTHING
-
-Pool at B3: SHIP
-Feedback: ATTACK
-
-Shoot at C4: HIT
-Feedback: NOTHING
-
-Pool at B8: SHIP
-Feedback: ATTACK
-
-Shoot at B7: HIT
-Feedback: NOTHING
-
-Pool at C5: SHIP
-Feedback: ATTACK
-
-Shoot at B6: HIT
-Feedback: NOTHING
-
-Pool at D4: EMPTY
-Feedback: ATTACK
-
-Pool at I1: SHIP
-Feedback: NOTHING
-
-Shoot at I0: HIT
-Feedback: ATTACK
-
-Pool at I5: EMPTY
-Feedback: NOTHING
-
-Pool at F7: EMPTY
-Feedback: NOTHING
-
-Pool at C2: EMPTY
-Feedback: ATTACK
-
-Pool at C8: SHIP
-Feedback: NOTHING
-
-Shoot at B8: HIT
-Feedback: ATTACK
-
-Pool at H7: SHIP
-Feedback: NOTHING
-
-Shoot at I8: HIT
-Feedback: NOTHING
-
-Pool at C2: EMPTY
-Feedback: NOTHING
-
-Pool at C1: EMPTY
-Feedback: NOTHING
-
-Pool at H7: EMPTY
-Feedback: ATTACK
-
-Pool at B3: SHIP
-Feedback: NOTHING
-
-Shoot at B4: HIT
-Feedback: ATTACK
-
-Pool at I3: SHIP
-Feedback: NOTHING
-
-Shoot at I3: HIT
-Feedback: ATTACK
-
+SHIP #0 : C0C4
+SHIP #1 : E2E5
+SHIP #2 : I0I2
+SHIP #3 : I6I8
+SHIP #4 : E8F8
+-------------------------------------
+POLL G3
+EMPTY
+Adversaire: NOTHING
+-------------------------------------
+POLL G6
+EMPTY
+Adversaire: NOTHING
+-------------------------------------
+POLL D6
+EMPTY
+Adversaire: ATTACK
+-------------------------------------
+POLL B6
+SHIP
+	A6
+Adversaire: NOTHING
+-------------------------------------
+SHOOT A6
+HIT
+Adversaire: ATTACK
+-------------------------------------
+POLL A6
+SHIP
+	A7
+Adversaire: NOTHING
+-------------------------------------
+SHOOT A7
+HIT
+Adversaire: ATTACK
+-------------------------------------
+POLL A7
+SHIP
+	A8
+Adversaire: NOTHING
+-------------------------------------
+SHOOT A8
+HIT
+Adversaire: ATTACK
+-------------------------------------
+POLL A8
+EMPTY
+Adversaire: NOTHING
+-------------------------------------
+POLL D1
+EMPTY
+Adversaire: NOTHING
+-------------------------------------
+POLL I3
+EMPTY
+Adversaire: ATTACK
+-------------------------------------
+POLL G8
+SHIP
+	F8
+Adversaire: NOTHING
+-------------------------------------
+SHOOT F8
+HIT
+Adversaire: ATTACK
+-------------------------------------
+POLL F8
+SHIP
+	E8
+Adversaire: NOTHING
+-------------------------------------
+SHOOT E8
+HIT
+Adversaire: ATTACK
+-------------------------------------
+POLL E8
+SHIP
+	D8
+Adversaire: NOTHING
+-------------------------------------
+SHOOT D8
+HIT
+Adversaire: NOTHING
+-------------------------------------
+POLL D8
+EMPTY
+Adversaire: NOTHING
+-------------------------------------
+POLL B3
+EMPTY
+Adversaire: NOTHING
+-------------------------------------
+POLL G1
+EMPTY
+Adversaire: ATTACK
+-------------------------------------
+POLL I6
+SHIP
+	I7
+Adversaire: NOTHING
+-------------------------------------
+SHOOT I7
+HIT
+Adversaire: ATTACK
+-------------------------------------
+POLL I7
+SHIP
+	I8
+Adversaire: NOTHING
+-------------------------------------
+SHOOT I8
+HIT
+Adversaire: ATTACK
+-------------------------------------
+POLL I8
+SHIP
+	I9
+Adversaire: NOTHING
+-------------------------------------
+SHOOT I9
+HIT
+Adversaire: NOTHING
+-------------------------------------
+POLL I9
+EMPTY
+Adversaire: NOTHING
+-------------------------------------
+POLL D8
+EMPTY
+Adversaire: ATTACK
+-------------------------------------
+POLL B1
+SHIP
+	B0
+Adversaire: NOTHING
+-------------------------------------
+SHOOT B0
+HIT
+Adversaire: ATTACK

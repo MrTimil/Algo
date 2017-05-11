@@ -2,7 +2,7 @@ CFLAG=-c -Wall -std=c99 -g -o
 
 all: bp_navy
 bp_navy: bibli.o navy.o
-	gcc -Wall -std=c99 -g -o bp_navy $^ -lm
+	gcc -Wall -std=c99 -g -o bp_navy $^
 
 navy.o: navy.c bibli.h 
 	gcc $(CFLAG) navy.o $<

@@ -2,331 +2,157 @@ START
 Tour de boucle
 POLL
 B1
-	C1
-Adversaire: NOTHING
-
-
-manche
-Tour de boucle
-On va tirer : C1
-
-Adversaire: ATTACK
-
-
-manche
-Tour de boucle
-POLL
-C1
-
-	D1
-Adversaire: NOTHING
-
-
-manche
-Tour de boucle
-On va tirer : D1
-
-Adversaire: NOTHING
-
-
-manche
-Tour de boucle
-POLL
-D1
-
-	E1
-Adversaire: ATTACK
-
-
-manche
-Tour de boucle
-On va tirer : E1
-
-Adversaire: NOTHING
-
-
-manche
-Tour de boucle
-POLL
-E1
-
-	F1
-Adversaire: NOTHING
-
-
-manche
-Tour de boucle
-On va tirer : F1
-
-Adversaire: NOTHING
-
-
-manche
+PAS DE BATEAU ici : 	Adversaire: NOTHING
 Tour de boucle
 POLL
 F1
-
-PAS DE BATEAU ici : 	F1
+	E2
 Adversaire: NOTHING
+Tour de boucle
+On va tirer : E2
 
-
-manche
+Adversaire: NOTHING
 Tour de boucle
 POLL
-F1
-PAS DE BATEAU ici : 	F1
-Adversaire: NOTHING
-
-
-manche
-Tour de boucle
-POLL
-I1
-PAS DE BATEAU ici : 	F1
-Adversaire: NOTHING
-
-
-manche
-Tour de boucle
-POLL
-B5
-	C4
-Adversaire: NOTHING
-
-
-manche
-Tour de boucle
-On va tirer : C4
-
-Adversaire: ATTACK
-
-
-manche
-Tour de boucle
-POLL
-C4
-
-	D3
-Adversaire: NOTHING
-
-
-manche
-Tour de boucle
-On va tirer : D3
-
-Adversaire: NOTHING
-
-
-manche
-Tour de boucle
-POLL
-D3
+E2
 
 	E3
-Adversaire: ATTACK
-
-
-manche
+Adversaire: NOTHING
 Tour de boucle
 On va tirer : E3
 
-Adversaire: NOTHING
-
-
-manche
+Adversaire: ATTACK
 Tour de boucle
 POLL
 E3
 
-	D4
+	E4
 Adversaire: NOTHING
-
-
-manche
 Tour de boucle
-On va tirer : D4
-
-Adversaire: NOTHING
-
-
-manche
-Tour de boucle
-POLL
-D4
-
-	C3
-Adversaire: ATTACK
-
-
-manche
-Tour de boucle
-On va tirer : C3
-
-Adversaire: NOTHING
-
-
-manche
-Tour de boucle
-POLL
-C3
-
-	B3
-Adversaire: ATTACK
-
-
-manche
-Tour de boucle
-On va tirer : B3
-
-Adversaire: NOTHING
-
-
-manche
-Tour de boucle
-POLL
-B3
-
-	B4
-Adversaire: ATTACK
-
-
-manche
-Tour de boucle
-On va tirer : B4
-
-Adversaire: NOTHING
-
-
-manche
-Tour de boucle
-POLL
-B4
-
-	A3
-Adversaire: NOTHING
-
-
-manche
-Tour de boucle
-On va tirer : A3
+On va tirer : E4
 
 Adversaire: ATTACK
-
-
-manche
 Tour de boucle
 POLL
-A3
+E4
 
-PAS DE BATEAU ici : 	A3
+	E5
 Adversaire: NOTHING
+Tour de boucle
+On va tirer : E5
 
+Adversaire: ATTACK
+Tour de boucle
+POLL
+E5
 
-manche
+PAS DE BATEAU ici : 	E5
+Adversaire: NOTHING
+Tour de boucle
+POLL
+I1
+	I2
+Adversaire: NOTHING
+Tour de boucle
+On va tirer : I2
+
+Adversaire: NOTHING
+Tour de boucle
+POLL
+I2
+
+	I1
+Adversaire: NOTHING
+Tour de boucle
+On va tirer : I1
+
+Adversaire: ATTACK
+Tour de boucle
+POLL
+I1
+
+	I0
+Adversaire: NOTHING
+Tour de boucle
+On va tirer : I0
+
+Adversaire: ATTACK
+Tour de boucle
+POLL
+I0
+
+PAS DE BATEAU ici : 	I0
+Adversaire: NOTHING
+Tour de boucle
+POLL
+B5
+PAS DE BATEAU ici : 	I0
+Adversaire: ATTACK
 Tour de boucle
 POLL
 F5
-	G6
+PAS DE BATEAU ici : 	I0
 Adversaire: NOTHING
-
-
-manche
-Tour de boucle
-On va tirer : G6
-
-Adversaire: NOTHING
-
-
-manche
-Tour de boucle
-POLL
-G6
-
-	F6
-Adversaire: NOTHING
-
-
-manche
-Tour de boucle
-On va tirer : F6
-
-Adversaire: ATTACK
-
-
-manche
-Tour de boucle
-POLL
-F6
-
-PAS DE BATEAU ici : 	F6
-Adversaire: NOTHING
-
-
-manche
 Tour de boucle
 POLL
 I5
-PAS DE BATEAU ici : 	F6
+	I6
+Adversaire: NOTHING
+Tour de boucle
+On va tirer : I6
+
+Adversaire: NOTHING
+Tour de boucle
+POLL
+I6
+
+	I7
+Adversaire: NOTHING
+Tour de boucle
+On va tirer : I7
+
 Adversaire: ATTACK
+Tour de boucle
+POLL
+I7
 
+	I8
+Adversaire: NOTHING
+Tour de boucle
+On va tirer : I8
 
-manche
+Adversaire: ATTACK
+Tour de boucle
+POLL
+I8
+
+PAS DE BATEAU ici : 	I8
+Adversaire: NOTHING
 Tour de boucle
 POLL
 B8
-PAS DE BATEAU ici : 	F6
-Adversaire: NOTHING
-
-
-manche
+PAS DE BATEAU ici : 	I8
+Adversaire: ATTACK
 Tour de boucle
 POLL
 F8
-	G9
+	E8
 Adversaire: NOTHING
-
-
-manche
 Tour de boucle
-On va tirer : G9
+On va tirer : E8
 
 Adversaire: NOTHING
-
-
-manche
 Tour de boucle
 POLL
-G9
+E8
 
-	H9
+	F8
 Adversaire: NOTHING
-
-
-manche
 Tour de boucle
-On va tirer : H9
+On va tirer : F8
 
 Adversaire: ATTACK
-
-
-manche
 Tour de boucle
 POLL
-H9
-
-	I9
-Adversaire: NOTHING
-
-
-manche
-Tour de boucle
-On va tirer : I9
-
-Adversaire: ATTACK
-
-
-manche
-Tour de boucle
-POLL
-I9
+F8
 
