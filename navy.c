@@ -8,6 +8,10 @@
 
 #define BUFSIZE 256
 
+// PROJET ALGO 
+// BOISSON Romain
+// PAQUETTE Emile
+
 int main(){
 	setbuf(stdout, NULL);
 	char buffer[BUFSIZE];
@@ -39,7 +43,7 @@ int main(){
  
  	// Stratégie : 
  	/* 
- 	pour le moment, on poll selon les coord du tableau de poll, si on touche, on repoll sur la même coord, 
+ 	On poll selon les coord du tableau de poll, si on touche, on repoll sur la même coord, 
  	jusqu'a ce que le poll ne réussisse pas, puis on recommence a poll selon le tableau
  	Amélioration : la premiere fois que le poll ne répond rien, on repoll a la premiere coord qui a touchée, 
  	(cas d'un bateau qu'on aurait touché au milieu et qu'on est parti a droite avec les polls et donc on ne detecte pas la gauche du bateau,

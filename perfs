@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# PAQUETTE Emile Script permettant de réaliser un nombre de bataille et d'afficher combien de fois on gagne  
+	
+
+TOTAL=0;
+MOI=0;
+
+while [ $TOTAL -lt 10000 ];
+do
+    TOTAL=$(($TOTAL+1));
+
+    ./navy-server bp_navy navy-dumb 2>&1 | grep ": bp_navy" > /dev/null;
+    
+    if [ $? -eq 0 ];
+    then
+        MOI=$(($MOI+1));
+    fi
+done
+
+echo "Nous gagnons $MOI fois sur $TOTAL";
+
+exit 0;

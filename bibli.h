@@ -9,6 +9,10 @@
 #include <stdbool.h>
 #define BUFSIZE 256
 
+// PROJET ALGO 
+// BOISSON Romain
+// PAQUETTE Emile
+
 // Fonctions 
 
 /*

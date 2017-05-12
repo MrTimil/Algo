@@ -1,5 +1,9 @@
 #include "bibli.h"
 
+// PROJET ALGO 
+// BOISSON Romain
+// PAQUETTE Emile
+
 // Bibliothèque de fonctions 
 
 /*	
@@ -7,7 +11,7 @@
 	Version 2 : On place les bateaux de manière aléatoire : mais on remarque une perte de performance, avec la version 1, on gagnait en moyenne 975 fois sur 1000 contre le navy-dumb, avec les bateaux complètement aléatoire, on passe a 800 de moyenne, on pert donc 175 partie a cause du fait que nos bateaux sont aléatoire.
 	Version 3 : On ecrit en dur des jeux de coordonnées, on stocke les différentes coordonnées dans un tableau, et au debut de la partie on choisi une disposition de maniere aléatoire
 
-	Tableau permettant de stocker nos nbStrat stratégie (on peut visualiser les différentes flottes sur l'image fourni dans nos dossier) On choisi, dans nos 3 stratégie de ne jamais placé les bateaux sur les même coord qu'avant : on fait cela afin d'eviter de tomber contre un bot qui mémorise la position des bateaux et qui place des mines a ces coord
+	Tableau permettant de stocker nos nbStrat stratégie (on peut visualiser les différentes flottes sur l'image fourni dans nos dossier : starts.ods) On choisi, dans nos 3 stratégie de ne jamais placé les bateaux sur les même coord qu'avant : on fait cela afin d'eviter de tomber contre un bot qui mémorise la position des bateaux et qui place des mines a ces coord
 */
 char buffer[BUFSIZE];
 
